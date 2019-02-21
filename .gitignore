@@ -2,3 +2,5 @@ funlangs
 *.swp
 *.o
 *.hi
+*.png
+dist
