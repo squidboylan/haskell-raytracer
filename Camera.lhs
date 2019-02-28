@@ -19,8 +19,10 @@ Rays, each Ray represents a pixel and each list represents a row of pixels.
 > x_res = 800
 > y_res = 600
 > generateRays :: Vector -> Float -> [Ray]
-> generateRays f fov = [ (f, dir) | y <- [-y_res, -y_res + 1..y_res],
->                                   x <- [-x_res, -x_res + 1..x_res],
+> generateRays f fov = [ (f, dir) | let h_x_res = x_res/2,
+>                                   let h_y_res = y_res/2,
+>                                   y <- [-h_y_res, -h_y_res + 1..h_y_res - 1],
+>                                   x <- [-h_x_res, -h_x_res + 1..h_x_res - 1],
 >                                   let inv_w = 1.0/x_res,
 >                                   let inv_h = 1.0/y_res,
 >                                   let angle = tan ((pi * fov/180.0) / 2.0),
