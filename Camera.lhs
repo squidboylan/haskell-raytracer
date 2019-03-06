@@ -29,3 +29,16 @@ Rays, each Ray represents a pixel and each list represents a row of pixels.
 >                                   let y_vec = (1.0 - 2.0 * ((y + 0.5) * inv_h)) * angle,
 >                                   let x_vec = (2.0 * ((x + 0.5) * inv_h) - 1.0) * angle * (x_res/y_res),
 >                                   let dir = normalize (x, y, -1.0)]
+
+> generateRay :: Vector -> Float -> Float -> Float -> Float -> Float -> Ray
+> generateRay f fov a b x_res y_res = (f, dir)
+>   where h_x_res = x_res/2
+>         h_y_res = y_res/2
+>         y = b - h_y_res
+>         x = a - h_x_res
+>         inv_w = 1.0/x_res
+>         inv_h = 1.0/y_res
+>         angle = tan ((pi * fov/180.0) / 2.0)
+>         y_vec = (1.0 - 2.0 * ((y + 0.5) * inv_h)) * angle
+>         x_vec = (2.0 * ((x + 0.5) * inv_h) - 1.0) * angle * (x_res/y_res)
+>         dir = normalize (x, y, -1.0)
