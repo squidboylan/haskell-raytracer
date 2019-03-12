@@ -5,7 +5,7 @@ This file handles the necessary definitions of objects for the raytracer
 > import Common
 > import Camera
 
-> data Object = Sphere Vector Float PixelF | Triangle (Vector, Vector, Vector) Vector PixelF | Mesh [Object]
+> data Object = Sphere Vector Float PixelRGB8 | Triangle (Vector, Vector, Vector) Vector PixelRGB8 | Mesh [Object]
 >   deriving Show
 
 > translate                         :: Vector -> Object -> Object

@@ -31,7 +31,7 @@ Rays, each Ray represents a pixel and each list represents a row of pixels.
 >                                   let dir = normalize (x, y, -1.0)]
 
 > generateRay :: Vector -> Float -> Float -> Float -> Float -> Float -> Ray
-> generateRay f fov a b x_res y_res = (f, dir)
+> generateRay f fov x_res y_res a b = (f, dir)
 >   where h_x_res = x_res/2
 >         h_y_res = y_res/2
 >         y = b - h_y_res

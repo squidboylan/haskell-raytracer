@@ -2,10 +2,11 @@ module Main where
 import Codec.Picture
 import Object
 import Camera
+import Lighting
 
 main :: IO ()
---main = writePng "derp.png" $ generateImage pixelRenderer 250 300
---   where pixelRenderer x y = PixelRGBF (fromIntegral x) (fromIntegral y) 128
-main = print(length vals)
-  where vals = map (checkCollision (Sphere (0.0, 0.0, 0.0) 1.0 (1.0, 0.0, 0.0)))
-             $ generateRays (0.0, 10.0, 0.0) 90
+main = writePng "derp.png" $ generateImage pixelRenderer 800 600
+   where pixelRenderer x y = noLight $ checkCollisions [(Sphere (0.0, 0.0, 0.0) 1.0 (PixelRGB8 255 0 0))] $ generateRay (0.0, 10.0, 0.0) 90 800 600 (fromIntegral x) (fromIntegral y)
+-- main = print( vals)
+  -- where vals = map (checkCollisions [(Sphere (0.0, 0.0, 0.0) 1.0 (PixelRGBF 1.0 0.0 0.0))])
+             -- $ generateRays (0.0, 10.0, 0.0) 90
