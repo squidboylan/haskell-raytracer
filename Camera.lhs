@@ -16,8 +16,6 @@ origin and the second Vector is its normalized direction.
 Now we will create a generateRays function which will return a list of lists of
 Rays, each Ray represents a pixel and each list represents a row of pixels.
 
-> x_res = 800
-> y_res = 600
 > generateRays :: Vector -> Float -> [Ray]
 > generateRays f fov = [ (f, dir) | let h_x_res = x_res/2,
 >                                   let h_y_res = y_res/2,
@@ -29,16 +27,18 @@ Rays, each Ray represents a pixel and each list represents a row of pixels.
 >                                   let y_vec = (1.0 - 2.0 * ((y + 0.5) * inv_h)) * angle,
 >                                   let x_vec = (2.0 * ((x + 0.5) * inv_h) - 1.0) * angle * (x_res/y_res),
 >                                   let dir = normalize (x, y, -1.0)]
+>  where x_res = 800
+>        y_res = 600
 
 > generateRay :: Vector -> Float -> Float -> Float -> Float -> Float -> Ray
 > generateRay f fov x_res y_res a b = (f, dir)
 >   where h_x_res = x_res/2
 >         h_y_res = y_res/2
->         y = b - h_y_res
 >         x = a - h_x_res
+>         y = b - h_y_res
 >         inv_w = 1.0/x_res
 >         inv_h = 1.0/y_res
->         angle = tan ((pi * fov/180.0) / 2.0)
->         y_vec = (1.0 - 2.0 * ((y + 0.5) * inv_h)) * angle
->         x_vec = (2.0 * ((x + 0.5) * inv_h) - 1.0) * angle * (x_res/y_res)
->         dir = normalize (x, y, -1.0)
+>         angle = tan (pi * 0.5 * fov/180.0)
+>         y_vec = (2.0 * ((y + 0.5) * inv_h)) * angle
+>         x_vec = (2.0 * ((x + 0.5) * inv_w)) * angle * (x_res/y_res)
+>         dir = normalize (x_vec, y_vec, -1.0)
