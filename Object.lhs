@@ -5,7 +5,9 @@ This file handles the necessary definitions of objects for the raytracer
 > import Common
 > import Camera
 
-> data Object = Sphere Vector Float PixelRGB8 | Triangle (Vector, Vector, Vector) Vector PixelRGB8 | Mesh [Object]
+> data Object = Sphere Vector Float PixelRGB8
+>             | Triangle (Vector, Vector, Vector) Vector PixelRGB8
+>             | Mesh [Object]
 >   deriving Show
 
 > translate                         :: Vector -> Object -> Object
@@ -36,6 +38,9 @@ https://gamedev.stackexchange.com/questions/96459/fast-ray-sphere-collision-code
 > checkCollisions os r = filter (thirdEq smallestdist) $ collisions
 >   where collisions = unwrapMaybe $ map ((flip checkCollision) r) os
 >         smallestdist = foldr1 min $ map getThird $ collisions
+
+> getColor (_, (Sphere _ _ c), _) = c
+> getColor (_, (Triangle _ _ c), _) = c
 
 > getThird (_, _, a) = a
 

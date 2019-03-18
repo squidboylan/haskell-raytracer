@@ -10,7 +10,4 @@ values directly based off the Object color
 
 > noLight :: [(Ray, Object, Float)] -> PixelRGB8
 > noLight [] = PixelRGB8 0 0 0
-> noLight xs = noLightSingle $ head xs
-
-> noLightSingle (_, (Sphere _ _ c), _) = c
-> noLightSingle (_, (Triangle _ _ c), _) = c
+> noLight xs = getColor $ head xs
