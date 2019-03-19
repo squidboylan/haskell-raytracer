@@ -1,6 +1,7 @@
 > module Common where
 
 > type Vector = (Float, Float, Float)
+> type Ray = (Vector, Vector)
 
 > addVectors                    :: Vector -> Vector -> Vector
 > addVectors (a, b, c) (x, y, z) = (a + x, b + y, c + z)

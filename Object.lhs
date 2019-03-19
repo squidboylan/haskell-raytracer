@@ -46,7 +46,3 @@ https://gamedev.stackexchange.com/questions/96459/fast-ray-sphere-collision-code
 > getThird (_, _, a) = a
 
 > thirdEq x (_, _, a) = x == a
-
-https://stackoverflow.com/questions/40327699/filtering-nothing-and-unpack-just
-
-> unwrapMaybe xs = [ x | Just x <- xs ]
