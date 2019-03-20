@@ -9,5 +9,5 @@ rather simple one and assumes no lighting, which means we just generate pixel
 values directly based off the Object color
 
 > noLight :: [(Ray, Object, Float)] -> PixelRGB8
-> noLight [] = PixelRGB8 0 0 0
+> noLight [] = PixelRGB8 255 255 255
 > noLight xs = getColor $ head xs
