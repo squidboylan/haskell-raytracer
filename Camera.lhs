@@ -11,7 +11,7 @@ module we will take the list of rays and generate our image from it.
 Now we will create a generateRay function which will return a Ray corresponding
 to the pixel coordinates passed in as an argument. This ray generation code was
 adopted from the online tutorial at
-https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-generating-
+https://www.scratchapixel.com/lessons/3d-basic-rendering/ray-tracing-generating-camera-rays/
 
 > generateRay :: Vector -> Float -> Float -> Float -> Float -> Float -> Ray
 > generateRay f fov x_res y_res a b = (f, dir)
